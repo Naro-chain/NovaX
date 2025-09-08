@@ -1,0 +1,93 @@
+/* Maintain original card sizing and styling */
+.crypto-slide-wrapper {
+  padding: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.crypto-slide-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+/* Price change styling */
+.price-change {
+  transition: color 0.3s ease;
+  font-weight: 600;
+  color: #48CD4D;
+  font-size: 24px;
+  font-weight: normal;
+  -webkit-text-stroke: 0;
+  text-stroke: 0;
+  background: none;
+  -webkit-text-fill-color: #48CD4D;
+}
+
+/* Price value styling */
+.price-value {
+  transition: all 0.3s ease;
+  font-weight: 700;
+}
+
+/* Animation for price updates */
+@keyframes priceUpdate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.price-value.updated {
+  animation: priceUpdate 0.3s ease;
+}
+
+/* Ensure the article maintains original styling */
+.crypto-slide-wrapper article {
+  padding: 25px 20px;
+  border: none;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 120px; /* Ensure consistent height for background images */
+}
+
+/* Maintain original image sizing */
+.crypto-slide-wrapper article img {
+  display: block;
+  float: left;
+  margin-right: 12px;
+  max-width: 42px;
+}
+
+/* Maintain original heading styling */
+.crypto-slide-wrapper article h6 {
+  font-size: 28px;
+  font-weight: 500;
+  -webkit-text-stroke: 1px #FFFFFF;
+  text-stroke: 1px #FFFFFF;
+  line-height: 1.5;
+}
+
+/* Ensure background images are applied correctly for each crypto type */
+.crypto-btc article {
+  background-image: url("../../../public/images/trading-volumn.png");
+}
+
+.crypto-eth article {
+  background-image: url("../../../public/images/fee.png");
+}
+
+.crypto-sol article {
+  background-image: url("../../../public/images/open-interest.png");
+}
+
+.crypto-matic article {
+  background-image: url("../../../public/images/total-user.png");
+} 

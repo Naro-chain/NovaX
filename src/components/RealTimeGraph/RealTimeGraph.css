@@ -1,0 +1,223 @@
+.real-time-graph-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #181c23;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.18);
+  border: 1px solid #23272f;
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #181c23;
+  opacity: 0.8;
+}
+
+.graph-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 222, 168, 0.05) 0%, rgba(51, 207, 186, 0.05) 100%);
+  opacity: 0.3;
+}
+
+.graph-header {
+  position: relative;
+  z-index: 2;
+  padding: 24px 20px 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #181c23;
+  border-bottom: 1px solid #23272f;
+}
+
+.price-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.current-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #bfc9d4;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.price-change {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.price-change.positive {
+  background: rgba(0, 222, 168, 0.1);
+  color: #00dea8;
+  border: 1px solid rgba(0, 222, 168, 0.2);
+}
+
+.price-change.negative {
+  background: rgba(255, 83, 83, 0.1);
+  color: #ff5353;
+  border: 1px solid rgba(255, 83, 83, 0.2);
+}
+
+.graph-title {
+  font-size: 18px;
+  color: #bfc9d4;
+  font-weight: 500;
+  text-align: right;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.graph-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: #181c23;
+}
+
+.price-chart {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: #151e2c;
+  border: 1px solid #23272f;
+  min-height: 300px;
+}
+
+.graph-footer {
+  position: relative;
+  z-index: 2;
+  padding: 16px 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #181c23;
+  border-top: 1px solid #23272f;
+}
+
+.volume-info,
+.market-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.volume-label,
+.market-label {
+  font-size: 12px;
+  color: #bfc9d4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.volume-value,
+.market-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #bfc9d4;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .real-time-graph-container {
+    height: 100%;
+  }
+
+  .graph-header {
+    padding: 16px 20px 12px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .current-price {
+    font-size: 24px;
+  }
+
+  .graph-content {
+    padding: 0 20px;
+    min-height: 250px;
+  }
+
+  .graph-footer {
+    padding: 12px 20px 16px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .real-time-graph-container {
+    height: 100%;
+  }
+
+  .graph-content {
+    min-height: 200px;
+  }
+}
+
+/* Additional animations */
+.real-time-graph-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.03) 50%, transparent 70%);
+  animation: shimmer 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Data point animations */
+.price-chart {
+  transition: all 0.3s ease;
+}
+
+.price-chart:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Pulse effect for important elements */
+.volume-value,
+.market-value {
+  animation: valuePulse 3s ease-in-out infinite;
+}
+
+@keyframes valuePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+} 
