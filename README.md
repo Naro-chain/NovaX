@@ -50,7 +50,7 @@ In the Trade Page, User can see the trading view graph of each Tokens you select
     - ULP / NVX Index Composition (Pair of Liquidity Pool)
 3. Earn
     
-    This Page is for Staking NVX/ULP Token & Earning Rewards(esNVX)
+    This Page is for Staking NVX/ULP Token & Earning Rewards(esNVX).
     
     - Overview of connected Wallet
         
